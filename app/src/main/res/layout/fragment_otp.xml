@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.fragment.OtpFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/transaction_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Transaction messsage"
+        android:textSize="16dp"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <EditText
+        android:id="@+id/otp_edittext"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:hint="OTP"
+        android:inputType="number"
+        android:textColorHint="@color/colorBlack"
+        app:layout_constraintTop_toBottomOf="@id/transaction_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <TextView
+        android:id="@+id/simulation_hint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorRed"
+        app:layout_constraintTop_toBottomOf="@id/otp_edittext"
+        android:gravity="center"
+        android:text="This is just a simulation. \nEnter any four digit"/>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/complete_trans"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Complete Transaction"
+        android:backgroundTint="@color/colorAccent"
+        app:layout_constraintTop_toBottomOf="@id/simulation_hint"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="@dimen/margin_15"
+        android:layout_marginBottom="60dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
