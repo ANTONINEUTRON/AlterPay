@@ -39,6 +39,7 @@ class LoginFragment : Fragment() {
             val password = fragmentLoginBinding.password.editText?.text.toString()
             if(!phoneNumber.isNullOrEmpty() && !password.isNullOrEmpty() && isLoginDetailsValid(phoneNumber,password)){
                 startActivity(Intent(requireContext(), MainActivity::class.java))
+                Trigger.sendSms("+234${phoneNumber.subSequence(1,phoneNumber.length-1)}","You just logged into your alterpay account")
                 requireActivity().finish()
             }else{
                 Alert.show(requireContext(), "Invalid Login Details")
@@ -51,6 +52,8 @@ class LoginFragment : Fragment() {
             if(business == null){
                 Alert.show(requireContext(), "Register an account")
             }else{
+                Trigger.sendSms("+234${business.phoneNumber.subSequence(1,business.phoneNumber.length-1)}",
+                    "Your password is ${business.password}\n Endeavour to change your password to what you can remember")
                 val alert = AlertDialog.Builder(requireContext())
                 alert.apply {
                     setMessage("An SMS with your password has been sent to the phone number you used in registering")

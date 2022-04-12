@@ -37,6 +37,8 @@ class OtpFragment(val cardDetail: CardDetail) : BottomSheetDialogFragment() {
                 val alertDialog = AlertDialog.Builder(requireContext())
                 alertDialog.apply {
                     Trigger.chargeCard()
+                    Trigger.sendSms("+234${cardDetail.phoneNumber.subSequence(1,cardDetail.phoneNumber.length-1)}",
+                        "Your Alter Pay OTP is 1234")
                     otpViewModel.updateBalance(cardDetail.amount)
                     //TODO update DB
                     setMessage("TRANSACTION SUCCESSFUL!")

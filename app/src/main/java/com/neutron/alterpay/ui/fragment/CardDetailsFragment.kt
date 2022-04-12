@@ -55,9 +55,9 @@ class CardDetailsFragment(
                 Alert.show(requireContext(), "Invalid Expiry Date")
                 areInputValid = false
             }
-            val arrOfSplitDate: List<String> = expiryDate.split("/")
-            val expiryMonth: String = arrOfSplitDate[0]
-            val expiryYear: String = arrOfSplitDate[1]
+//            val arrOfSplitDate: List<String> = expiryDate.split("/")
+//            val expiryMonth: String = arrOfSplitDate[0]
+//            val expiryYear: String = arrOfSplitDate[1]
             val amountString = cardDetailsLayoutBinding.amountTextInput.editText?.text.toString()
             val fullname: String = cardDetailsLayoutBinding.nameTextInput.editText?.text.toString()
             val amount: Float = if(!amountString.isNullOrEmpty()) amountString.toFloat() else  0f
@@ -71,7 +71,11 @@ class CardDetailsFragment(
             val ref: String = "BIZNAME_${System.currentTimeMillis()}"
             val redirectUrl: String = "" //TODO cloud function
             val email: String = cardDetailsLayoutBinding.email.editText?.text.toString()//TODO customer email if not empty
-            val phoneNumber: String = cardDetailsLayoutBinding.phoneNumber.editText?.text.toString() //TODO to rceive sms from africas talking
+            val phoneNumber: String = cardDetailsLayoutBinding.phoneNumber.editText?.text.toString()//TODO to rceive sms from africas talking
+
+            if (phoneNumber.isNullOrEmpty() || phoneNumber.length<11){
+                Alert.show(requireContext(), "Enter a valid phone number")
+            }
             //encrypt
             //pass to api
             //FOR FSI SIMULATION PURPOSE
